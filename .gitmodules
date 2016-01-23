@@ -4,3 +4,6 @@
 [submodule "InfluxPHP"]
 	path = InfluxPHP
 	url = https://github.com/crodas/InfluxPHP.git
+[submodule "www/flot"]
+	path = www/flot
+	url = https://github.com/flot/flot.git
