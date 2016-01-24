@@ -9,10 +9,11 @@
 require_once(dirname(__FILE__).'/phpMQTT/phpMQTT.php');
 require_once(dirname(__FILE__).'/Database.php');
 require_once(dirname(__FILE__).'/Rosenberg.php');
-$sRaspberryHost = "192.168.1.10";
-$oDB = new Database($sRaspberryHost);
+require_once(dirname(__FILE__).'/Config.php');
 
-$mqtt = new phpMQTT($sRaspberryHost, 1883, "iws daemon");
+$oDB = new Database(Config::$sInfluxDBHost);
+
+$mqtt = new phpMQTT(Config::$sMQTTHost, Config::$iMQTTPort, "iws daemon");
 if(!$mqtt->connect()){
 	exit(1);
 }
